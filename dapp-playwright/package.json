@@ -7,9 +7,10 @@
     "scripts": {
       "test:ui": "npx playwright test --ui",
       "test:debug": "PWDEBUG=1 npx playwright test --project=serial-tests",
-      "test:initial:basic": "npx synpress ./src/wallet/basicWallet",
+      "test:initial:basic": "npx synpress ./src/wallet/",
       "test:report": "npx playwright show-report results/playwright-report",
-      "test:wallet": "npx playwright test test/wallet/wallet.test.ts"
+      "test:wallet": "npx playwright test test/wallet.test.ts",
+      "postinstall": "npx playwright install"
     },
     "keywords": [],
     "author": "",
