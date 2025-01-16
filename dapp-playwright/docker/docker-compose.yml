@@ -1,0 +1,12 @@
+version: "3"
+services:
+  cronjob:
+    build:
+      context: ../..
+      dockerfile: dapp-playwright/docker/Dockerfile
+    container_name: cronjob_service
+    restart: always
+    volumes:
+      - ../../dapp-playwright:/app/dapp-playwright:cached
+      - ../../.git:/app/.git
+      - /app/dapp-playwright/node_modules
