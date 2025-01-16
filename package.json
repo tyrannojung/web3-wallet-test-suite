@@ -1,0 +1,11 @@
+{
+  "name": "wallet-testing-project",
+  "private": true,
+  "scripts": {
+    "test:e2e": "pnpm --filter @project/dapp-playwright test",
+    "deploy:infra": "pnpm --filter @project/terraform deploy"
+  },
+  "devDependencies": {
+    "eslint": "^9.18.0"
+  }
+}

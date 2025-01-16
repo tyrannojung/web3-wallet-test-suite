@@ -1,0 +1,19 @@
+# terraform.tfvars.example
+
+# AMI ID to use for the EC2 instance. Replace with the appropriate AMI for your region.
+ami = "ami-xxxxxx"
+
+# EC2 instance type. Default is set to t3.micro but can be changed to other types like t3a.large.
+instance_type = "t3.micro"
+
+# Name of the key pair to use for SSH access. Replace with the actual key pair name you want to use.
+key_name = "your_keypair_name"
+
+# Availability zone where the EC2 instance will be launched. Replace with your desired availability zone.
+availability_zone = "ap-northeast-2a"
+
+# ID of the existing EBS volume to attach to the instance. Replace with the actual EBS volume ID.
+existing_volume_id = "vol-xxxxxxxxxxxxxxx"
+
+# ID of the existing security group to associate with the instance. Replace with the actual security group ID.
+existing_security_group_id = "sg-xxxxxxxxxxxxxxx"

@@ -1,0 +1,8 @@
+# Ignore node_modules in all workspaces
+node_modules/
+
+# PNPM workspace-specific files
+.pnpm/
+.modules.yaml
+
+.env
