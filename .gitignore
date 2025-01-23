@@ -11,3 +11,28 @@ node_modules/
 results/
 
 log/
+
+
+# Terraform directories and plugins
+.terraform/
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Lock file to prevent concurrent modifications of the state
+.terraform.lock.hcl
+
+# Ignore crash logs generated when Terraform crashes
+crash.log
+
+# Terraform variable files that may contain sensitive data
+*.tfvars
+
+# Plan output files (created by `terraform plan -out <filename>`)
+*.tfplan
+
+# Ignore any crash or debug logs
+crash.*.log
+*.tfdebug
+

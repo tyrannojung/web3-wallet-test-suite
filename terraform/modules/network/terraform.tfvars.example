@@ -1,0 +1,7 @@
+# terraform.tfvars.example for Network module
+
+# VPC ID where resources will be deployed. Replace with the actual VPC ID.
+vpc_id = "vpc-xxxxxxxxxxxxxxxxx"
+
+# IP address range that is allowed SSH access. Replace with the appropriate IP range for your use case.
+ssh_access_ip = "your-ip-address/32"

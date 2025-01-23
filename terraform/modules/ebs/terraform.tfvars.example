@@ -1,0 +1,7 @@
+# terraform.tfvars.example for EBS module
+
+# Availability zone where the EBS volume will be created. Replace with your desired availability zone.
+availability_zone = "ap-northeast-2a"
+
+# Size of the EBS volume in GB. Adjust the size based on your requirements.
+volume_size = "20"
