@@ -10,3 +10,5 @@ services:
       - ../../dapp-playwright:/app/dapp-playwright:cached
       - ../../.git:/app/.git
       - /app/dapp-playwright/node_modules
+    env_file:
+      - ../../dapp-playwright/.env # 빌드 컨텍스트(root/)에서 .env 파일의 경로

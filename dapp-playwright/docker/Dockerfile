@@ -30,6 +30,9 @@ ARG GITHUB_TOKEN
 ARG GIT_USER_NAME
 ARG GIT_USER_EMAIL
 
+# 환경 변수 설정 (선택적 종속성 설치 활성화)
+ENV NPM_CONFIG_OPTIONAL=true
+
 # Git 전역 설정을 적용합니다.
 RUN git config --global user.name "${GIT_USER_NAME}" && \
     git config --global user.email "${GIT_USER_EMAIL}" && \
