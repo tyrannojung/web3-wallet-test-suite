@@ -8,5 +8,4 @@ services:
     restart: always
     volumes:
       - ../../dapp-playwright:/app/dapp-playwright:cached
-      - ../../.git:/app/.git
       - /app/dapp-playwright/node_modules

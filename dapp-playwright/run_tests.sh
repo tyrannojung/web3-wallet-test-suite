@@ -3,7 +3,7 @@
 cd /app/dapp-playwright
 
 # 로그 디렉토리 설정
-LOG_DIR="docker/test"
+LOG_DIR="docker/log"
 LOG_FILE="${LOG_DIR}/test_run.log"
 
 # 로그 시작 시간 기록
