@@ -11,6 +11,9 @@ RUN apt-get update && \
 RUN npm install -g npm@latest
 RUN npm install -g pnpm@latest
 
+# 빌드 컨텍스트의 .git 디렉토리를 컨테이너의 /app/.git으로 복사합니다.
+COPY .git /app/.git
+
 COPY ./dapp-playwright /app/dapp-playwright
 
 # 작업 디렉토리 설정
@@ -21,6 +24,17 @@ RUN rm -rf node_modules package-lock.json pnpm-lock.yaml
 
 # 패키지 업데이트 및 git 설치
 RUN apt-get update && apt-get install -y git
+
+# Git 설정을 위한 빌드 시 변수(ARG)를 선언합니다.
+ARG GITHUB_TOKEN
+ARG GIT_USER_NAME
+ARG GIT_USER_EMAIL
+
+# Git 전역 설정을 적용합니다.
+RUN git config --global user.name "${GIT_USER_NAME}" && \
+    git config --global user.email "${GIT_USER_EMAIL}" && \
+    git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+
 
 # 프로젝트 의존성 설치
 RUN pnpm install --optional
