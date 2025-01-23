@@ -60,6 +60,9 @@ run_test
 
 echo "=== Test Completed at $(date) ===" >> $LOG_FILE
 
+# Git 명령 실행
+cd /app  # Git 저장소의 루트 디렉토리로 이동
+
 # 리포트 폴더만 푸시
 echo "Pushing report folder to main branch..." >> $LOG_FILE
 git --git-dir=/app/.git --work-tree=/app add "${REPORT_DIR}"
