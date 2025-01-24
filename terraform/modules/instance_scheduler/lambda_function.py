@@ -10,8 +10,8 @@ def lambda_handler(event, context):
     KST = timezone(timedelta(hours=9))
     current_time = datetime.now(KST).time()
     
-    start_time = time(15, 50) # 5시 시작은 (5,0)
-    stop_time = time(16, 20) # 11시 종료는 (11, 0)
+    start_time = time(16, 00) # 5시 시작은 (5,0)
+    stop_time = time(17, 00) # 11시 종료는 (11, 0)
     
     print(f"start_time {start_time}")
     print(f"current_time {current_time}")
