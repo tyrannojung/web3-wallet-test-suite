@@ -10,6 +10,7 @@ LOG_DIR="docker/log"
 LOG_FILE="${LOG_DIR}/test_run.log"
 REPORT_DIR="/app/dapp-playwright/reports"
 TODAY=$(date +%Y%m%d)
+TIMESTAMP=$(date +%H%M%S)
 mkdir -p "$LOG_DIR"
 
 # 로그 시작 시간 기록
@@ -42,7 +43,6 @@ run_test() {
 
   # 리포트 저장
   if [ -d "results/playwright-report" ]; then
-    TIMESTAMP=$(date +%Y%m%d_%H%M%S)
     REPORT_SUBDIR="${REPORT_DIR}/${TODAY}/${TIMESTAMP}"
     mkdir -p "$REPORT_SUBDIR"
     cp -r results/playwright-report/* "$REPORT_SUBDIR"
@@ -66,5 +66,5 @@ cd /app  # Git 저장소의 루트 디렉토리로 이동
 # 리포트 폴더만 푸시
 echo "Pushing report folder to main branch..." >> $LOG_FILE
 git --git-dir=/app/.git --work-tree=/app add "${REPORT_DIR}"
-git --git-dir=/app/.git --work-tree=/app commit -m "test: ${TODAY} wallet test report"
+git --git-dir=/app/.git --work-tree=/app commit -m "test: ${TODAY}_${TIMESTAMP} wallet test report"
 git --git-dir=/app/.git --work-tree=/app push origin main
