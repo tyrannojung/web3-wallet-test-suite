@@ -84,22 +84,22 @@ pnpm test:wallet
 ```bash
 cd dapp-playwright/docker
 docker-compose up -d
-
-docker logs -f cronjob_service
 ```
 ---
 
-## 📝 사용 가능한 스크립트
+## 📝 Terraform을 통한 자동화 테스트
 
-**package.json** 예시:
-```json
-{
-  "scripts": {
-    "test:ui": "npx playwright test --ui",
-    "test:debug": "PWDEBUG=1 npx playwright test --project=serial-tests",
-    "test:initial:basic": "npx synpress ./src/wallet/",
-    "test:report": "npx playwright show-report results/playwright-report",
-    "test:wallet": "npx playwright test test/wallet/wallet.test.ts"
-  }
-}
+1. 변경되지 않은 스토리지를 재사용하기 위해 EBS 모듈을 먼저 초기화 및 적용합니다:
+```bash
+cd root/terraform/modules/ebs
+terraform init
+terraform apply -auto-approve
 ```
+
+2. 루트 terraform 디렉토리로 이동하여 전체 인프라를 초기화 및 적용합니다:
+```bash
+cd root/terraform/
+terraform init
+terraform apply -auto-approve
+```
+
