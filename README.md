@@ -89,14 +89,14 @@ docker-compose up -d
 
 ## 📝 Terraform을 통한 자동화 테스트
 
-1. 변경되지 않은 스토리지를 재사용하기 위해 EBS 모듈을 먼저 초기화 및 적용합니다:
+1. 변경되지 않은 스토리지를 재사용하기 위해 EBS 모듈을 먼저 초기화 및 적용:
 ```bash
 cd root/terraform/modules/ebs
 terraform init
 terraform apply -auto-approve
 ```
 
-2. 루트 terraform 디렉토리로 이동하여 전체 인프라를 초기화 및 적용합니다:
+2. 루트 terraform 디렉토리로 이동하여 전체 인프라를 초기화 및 적용:
 ```bash
 cd root/terraform/
 terraform init
