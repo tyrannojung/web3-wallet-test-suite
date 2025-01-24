@@ -19,7 +19,7 @@ resource "aws_lambda_function" "instance_scheduler" {
 resource "aws_cloudwatch_event_rule" "instance_scheduler" {
   name                = "instance_scheduler"
   description         = "Schedule EC2 instance daily at 05:00 and 11:00 KST"
-  schedule_expression = "cron(0,30 6 * * ? *)" # UTC 시간으로 20:00 (KST 05:00)와 02:00 (KST 11:00) cron(0 20,2 * * ? *) 기존값 
+  schedule_expression = "cron(50 6 * * ? *)" # UTC 시간으로 20:00 (KST 05:00)와 02:00 (KST 11:00) cron(0 20,2 * * ? *) 기존값 
 }
 
 resource "aws_cloudwatch_event_target" "instance_scheduler" {
