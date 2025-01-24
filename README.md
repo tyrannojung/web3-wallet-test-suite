@@ -5,7 +5,7 @@
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-%23623CE4.svg?style=for-the-badge&logo=terraform&logoColor=white)
 
-Playwright와 MetaMask를 연동하여 Web3 dApp 테스트 자동화 환경을 구성하고, Docker로 스케줄링 테스트를 실행하는 예시 프로젝트입니다.
+Playwright와 MetaMask를 연동하여 Web3 dApp 테스트 자동화 환경을 구성하고, Docker로 스케줄링 테스트를 실행하는 예시 프로젝트.
 
 ---
 
@@ -48,6 +48,9 @@ Playwright와 MetaMask를 연동하여 Web3 dApp 테스트 자동화 환경을 �
 - pnpm
 - Docker
 - MetaMask 계정(Seed Phrase 필요)
+- Playwright
+- AWS CLI
+- Terraform
 
 ### 초기 설정
 
@@ -63,11 +66,25 @@ cp .env.example .env
 
 ## 🌐 환경 변수 설정
 
-dapp-playwright 디렉토리 내에 `.env` 파일을 생성하고 다음 내용을 추가합니다:
+dapp-playwright 디렉토리 내에 `.env` 파일을 생성하고 다음 내용을 추가:
 ```plaintext
+# The mnemonic seed phrase for your MetaMask wallet.
 SEED_PHRASE=your_metamask_seed_phrase_here
+
+# The password for your MetaMask wallet.
 PASSWORD=your_metamask_password_here
-BASEURL=your_dapp_domain_here
+
+# The base URL of the DApp used for Playwright testing.
+BASEURL=https://your_dapp_test_url_here
+
+# Personal access token for authenticating with GitHub.
+GITHUB_TOKEN=your_github_personal_access_token_here
+
+# The GitHub username to use for commits and repository operations.
+GIT_USER_NAME=your_github_username_here
+
+# The GitHub email address to use for commits.
+GIT_USER_EMAIL=your_github_email_here
 ```
 ---
 
