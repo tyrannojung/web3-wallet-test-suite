@@ -10,16 +10,31 @@ Playwright와 MetaMask를 연동하여 Web3 dApp 테스트 자동화 환경을 �
 ## 📁 프로젝트 구조
 
 ```bash
-├── pnpm-workspace.yaml
 ├── dapp-playwright/
-│   ├── docker/
+│   ├── docker/             # Docker setup for running tests in isolated environments
 │   │   ├── Dockerfile
 │   │   └── docker-compose.yml
-│   ├── src/
+│   ├── src/                # Contains Playwright fixtures and supporting modules
 │   │   └── wallet/
-│   ├── test/
+│   ├── tests/              # Playwright test cases organized for end-to-end testing
+│   │   └── e2e.test.ts
+│   ├── .env
 │   ├── .env.example
-│   └── package.json
+│   ├── package.json
+│   ├── playwright.config.ts
+│   ├── run_tests.sh
+│   └── tsconfig.json
+├── terraform/
+│   ├── modules/           # Reusable Terraform modules for infrastructure provisioning
+│   ├── .terraform/
+│   ├── variables.tf
+│   ├── main.tf
+│   ├── terraform.tfvars
+│   └── terraform.tfvars.example
+├── pnpm-workspace.yaml
+├── .gitignore
+├── tsconfig.json
+└── README.md
 ```
 
 ---
