@@ -2,30 +2,28 @@ import { testWithSynpress, metaMaskFixtures } from "@synthetixio/synpress";
 import BasicSetup from "@/src/wallet/wallet.setup";
 import "dotenv/config";
 
-// 메타마스크 Fixtures 등록
-const test = testWithSynpress(metaMaskFixtures(BasicSetup))
+// Register MetaMask Fixtures
+const test = testWithSynpress(metaMaskFixtures(BasicSetup));
 
 const { expect } = test;
 const PORT = process.env.PORT || 3000;
 const BASEURL = process.env.BASEURL || `http://localhost:${PORT}`;
 
-
 // Test suite for connecting the wallet to the dApp
 test.describe("Connect Wallet to dApp", () => {
   test(`wallet test1`, async ({ page, metamask }) => {
-    
-    // 메타마스크와 상호작용할 브라우저(토카막 브릿지 페이지) 이동
+    // Navigate to the dApp to interact with MetaMask
     await page.goto(BASEURL);
 
-    // 토카막 브릿지 Connect Wallet 클릭
+    // Click the "Connect Wallet" button on the Tokamak Bridge
     await page.locator("p").filter({ hasText: "Connect Wallet" }).click();
 
-    // 메타마스크 해당 페이지와 연결 허용 클릭
+    // Allow connection with MetaMask on the corresponding page
     await metamask.connectToDapp();
 
-    // 버튼 요소가 DOM에서 제거되었는지 확인
-    await expect(page.locator('p').filter({ hasText: 'Connect Wallet' })).toHaveCount(0);
-
-
+    // Verify that the button element is removed from the DOM
+    await expect(
+      page.locator("p").filter({ hasText: "Connect Wallet" })
+    ).toHaveCount(0);
   });
 });
